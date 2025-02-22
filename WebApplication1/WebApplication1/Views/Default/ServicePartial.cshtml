@@ -1,0 +1,31 @@
+﻿
+@model List <WebApplication1.Models.TblService>
+<div id="services" class="section lb">
+    <div class="container">
+        <div class="section-title text-left">
+            <h3>Hizmetlerim</h3>
+            <p>İş süreçlerinizi iyileştirecek ve dijital hedeflerinize ulaşmanızda yardımcı olabileceğim konular.</p>
+        </div><!-- end title -->
+
+        <div class="row">
+        @foreach (var item in Model)
+        {
+
+
+
+            <div class="col-md-4">
+                <div class="services-inner-box">
+                    
+                        <div>
+                            <img src="@item.ImageUrl" alt="@item.Title" style="width:50px;height:50px;" />
+                        </div>
+                     
+                   
+                    <h2>@item.Title</h2>
+                    <p>@item.Description</p>
+                </div>
+            </div><!-- end col -->
+        }
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div>

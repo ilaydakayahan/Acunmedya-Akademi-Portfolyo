@@ -1,0 +1,34 @@
+﻿@model List<WebApplication1.Models.TblContact>
+@{
+    ViewBag.Title = "ContactList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Mesaj Listesi</h2>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th> Mesaj ID </th>
+        <th> İsim Soyisim </th>
+        <th> Email </th>
+        <th> Telefon </th>
+        <th> Mesajı Görüntüle </th>
+        <th> Sil </th>
+        
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ContactId </td>
+            <td>@item.NameSurname </td>
+            <td>@item.Email </td>
+            <td>@item.Phone </td>
+            <td><a href="#" class="btn btn-info">Mesajı Görüntüle</a> </td>
+            <td><a href="/Category/DeleteCategory/@item.ContactId" class="btn btn-danger">Sil</a> </td>
+           
+        </tr>
+    }
+</table>
+

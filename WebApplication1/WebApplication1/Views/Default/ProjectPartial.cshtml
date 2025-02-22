@@ -1,0 +1,39 @@
+﻿@model List<WebApplication1.Models.TblProject>
+
+<div id="portfolio" class="section lb">
+    <div class="container">
+        <div class="section-title text-left">
+            <h3>Projelerim</h3>
+            <p>Yazılım dünyasındaki adımlarımı,yenilikçi çalışmalarımı keşfedin!</p>
+        </div><!-- end title -->
+
+        <div class="gallery-menu row">
+            <div class="col-md-12">
+                <div class="button-group filter-button-group text-left">
+                    <button class="active" data-filter="*">Tüm Projelerim</button>
+                    @foreach (var category in Model.Select(m => m.TblCategory.CategoryName).Distinct())
+                    {
+                        <button data-filter=".gal_@(category.Replace(" ", "_"))">@category</button>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-list row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 col-sm-6 gallery-grid gal_@(item.TblCategory.CategoryName.Replace(" ", "_"))">
+                    <div class="gallery-single fix">
+                        <img src="@item.ImageUrl" class="img img-fluid" alt="Image" style="width:500px;height:180px">
+                        <div class="img-overlay">
+                            <a href="@item.ImageUrl" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
+                        </div>
+                        <div class="gallery-description text-center">
+                            <p>@item.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

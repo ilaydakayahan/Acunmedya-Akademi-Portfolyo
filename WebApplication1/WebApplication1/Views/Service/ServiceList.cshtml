@@ -1,0 +1,30 @@
+﻿
+@model List<WebApplication1.Models.TblService>
+@{
+    ViewBag.Title = "ServiceList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Hizmetlerim</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th> Hizmet ID </th>
+        <th> Hizmet Başlık </th>
+        <th> Hizmet Açıklama </th>
+        <th> Sil </th>
+        <th> Güncelle </th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ServiceID </td>
+            <td>@item.Title </td>
+            <td>@item.Description </td>
+            <td><a href="/Category/DeleteService/@item.ServiceID" class="btn btn-danger">Sil</a> </td>
+            <td><a href="/Category/UpdateService/@item.Description" class="btn btn-success">Güncelle</a> </td>
+        </tr>
+    }
+</table>
+<a href="/About/CreateAbout/" class="btn btn-primary">Yeni Hizmet Girişi</a>

@@ -1,0 +1,23 @@
+﻿   @model List<WebApplication1.Models.TblFeature>
+
+       @foreach (var item in Model)
+       {
+
+
+ <section id="home" class="main-banner parallaxie" style="background: url('@item.ImageUrl')">
+     
+     <div class="heading">
+         <h1>Merhaba Ben @item.NameSurname </h1>
+         <p>@item.Descrription</p>
+         <h3 class="cd-headline clip is-full-width">
+             <span>Ben </span>
+             <span class="cd-words-wrapper">
+
+                 <b class="is-visible">YAZILIM MÜHENDİSİ</b>
+                 <b>BİLGİSAYAR MÜHENDİSİ</b>
+
+             </span>
+         </h3>
+     </div>
+ </section>
+       }s

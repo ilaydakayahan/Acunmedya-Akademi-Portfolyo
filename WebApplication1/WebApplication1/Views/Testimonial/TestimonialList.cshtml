@@ -1,0 +1,38 @@
+﻿
+
+@model List<WebApplication1.Models.TblTestimonial>
+@{
+    ViewBag.Title = "TestimonialList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Referanslarım</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th> Referans ID </th>
+        <th> Başlık </th>
+        <th> Açıklama </th>
+        <th> Referans Adı </th>
+        <th> Image Url </th>
+        <th> Referans olan kişinin mesleği </th>
+        <th> Sil </th>
+        <th> Güncelle </th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        
+        <tr>
+            <td>@item.TestimonialID </td>
+            <td>@item.Title </td>
+            <td>@item.Description </td>
+            <td>@item.NameSurname </td>
+            <td>@item.ImageUrl </td>
+            <td>@item.Job </td>
+            <td><a href="/Category/DeleteAbout/@item.TestimonialID" class="btn btn-danger">Sil</a> </td>
+            <td><a href="/Category/UpdateAbout/@item.Description" class="btn btn-success">Güncelle</a> </td>
+        </tr>
+    }
+</table>
+<a href="/Testimonial/CreateTestimonial/" class="btn btn-primary">Yeni Referans Girişi</a>
